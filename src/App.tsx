@@ -1,7 +1,7 @@
-import React from "react";
 import "./styles/App.css";
-import Main from "./components/Main";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import Main from "./components/Main";
 
 const App = () => <Main />;
 

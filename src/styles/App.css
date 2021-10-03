@@ -139,9 +139,75 @@ body main {
 @media only screen and (min-width: 768px) {
   .h-100-md-up {
     height: 100%;
+    max-height: 100vh;
+  }
+
+  section .profile {
+    margin-right: -15px;
+    background: -moz-linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      )
+      right rgba(255, 255, 255, 0) no-repeat;
+    background: -webkit-linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      )
+      right rgba(255, 255, 255, 0) no-repeat;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      )
+      right rgba(255, 255, 255, 0) no-repeat;
+    background-size: 3px 100%;
   }
 }
 
-section.profile {
-  padding: 30px 0px;
+.navigator svg {
+  user-select: none;
+  cursor: pointer;
 }
+
+/* 
+  .classname .enter-active
+  .classname .enter .enter-active
+  .classname .enter-done
+
+  .classname .exit-active
+  .classname .exit .exit-active
+  .classname .exit-done
+*/
+.home-content .slide,
+.home-content .slide-enter {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+.home-content .slide.enter-active {
+  opacity: 1;
+}
+.home-content .slide.enter-done,
+.home-content .slide-exit {
+  opacity: 1;
+}
+.home-content .slide.exit-active {
+  opacity: 0;
+}
+/* .
+  fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+} 
+*/
