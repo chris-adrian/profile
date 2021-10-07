@@ -1,30 +1,23 @@
 import { useState } from "react";
-import { Row } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
 import HomeContent from "../components/HomeContent";
-import HomeTop from "../components/HomeTop";
-import HomeBottom from "../components/HomeBottom";
+import HomeNavigator from "../components/HomeNavigator";
 
 const Home = () => {
-  const [contentFlow, setContentFlow] = useState(0);
-  const goUp = () => {
-    contentChange(1);
-  };
-  const goDown = () => {
-    contentChange(-1);
-  };
-  const contentChange = (flow: number) => {
-    setContentFlow(flow);
+  const [contentChange, setContentChange] = useState(0);
+
+  const onChange = (flow: number) => {
+    setContentChange(flow);
   };
   const resetFlow = () => {
-    setContentFlow(0);
-    // console.log("reset");
+    setContentChange(0);
   };
 
   return (
     <Row className="home-content align-items-center h-100-md-up">
-      <HomeTop onClick={goUp} />
-      <HomeContent contentFlow={contentFlow} resetFlow={resetFlow} />
-      <HomeBottom onClick={goDown} />
+      <HomeNavigator onClick={() => onChange(1)} direction={"up"} />
+      <HomeContent onChange={contentChange} resetFlow={resetFlow} />
+      <HomeNavigator onClick={() => onChange(-1)} direction={"down"} />
     </Row>
   );
 };

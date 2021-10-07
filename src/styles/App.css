@@ -181,6 +181,31 @@ body main {
   .classname .exit-done
 */
 .home-content .slide,
+.home-content .slide .exit-done {
+  display: none;
+  transition: opacity 200ms;
+}
+.home-content .slide.enter-active {
+  display: block;
+  opacity: 0;
+}
+.home-content .slide.enter-done {
+  display: block;
+  opacity: 1;
+}
+.home-content .slide.exit {
+  display: block;
+  opacity: 1;
+}
+.home-content .slide .exit-active {
+  display: block;
+  opacity: 0;
+}
+/* .home-content .slide-enter,
+.home-content .slide-exit,
+.home-content .slide.exit-active {
+  display: block;
+}
 .home-content .slide-enter {
   opacity: 0;
   transition: opacity 200ms;
@@ -194,7 +219,7 @@ body main {
 }
 .home-content .slide.exit-active {
   opacity: 0;
-}
+} */
 /* .
   fade-enter {
     opacity: 0;

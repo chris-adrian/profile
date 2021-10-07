@@ -7,7 +7,7 @@ const ProfileIntro = ({ inProp, onClick }) => {
     <CSSTransition
       nodeRef={nodeRef}
       in={inProp}
-      timeout={250}
+      timeout={350}
       className="slide"
     >
       <div ref={nodeRef} onClick={onClick}>
