@@ -9,6 +9,7 @@ const ProfileIntro = ({ inProp, onClick }) => {
       in={inProp}
       timeout={350}
       className="slide"
+      classNames="slide"
     >
       <div ref={nodeRef} onClick={onClick}>
         <h1>Profile intro:</h1>

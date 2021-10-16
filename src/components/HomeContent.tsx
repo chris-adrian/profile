@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Col from "react-bootstrap/Col";
 import ProfileInfo from "./ProfileInfo";
 import ProfileIntro from "./ProfileIntro";
 
 // Conver to Class Component, add dynamic state function
 const HomeContent = ({ onChange, resetFlow }) => {
-  const contents = React.useMemo(() => {
+  const contents = useMemo(() => {
     return [ProfileIntro, ProfileInfo, ProfileIntro];
   }, []);
   const [contentState, setContentState] = useState({});

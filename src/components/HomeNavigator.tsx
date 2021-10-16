@@ -6,7 +6,6 @@ const HomeNavigator = ({ onClick, direction }) => {
       case "up":
         return (
           <svg
-            onClick={onClick}
             xmlns="http://www.w3.org/2000/svg"
             width="50"
             height="50"
@@ -21,7 +20,6 @@ const HomeNavigator = ({ onClick, direction }) => {
       case "down":
         return (
           <svg
-            onClick={onClick}
             xmlns="http://www.w3.org/2000/svg"
             width="50"
             height="50"
@@ -34,13 +32,13 @@ const HomeNavigator = ({ onClick, direction }) => {
           </svg>
         );
       default:
-        return <span>????</span>;
+        return <span>Icon undefined</span>;
     }
   };
 
   return (
     <Col md={12} className="navigator text-center">
-      {naviIcon(direction)}
+      <span onClick={onClick}>{naviIcon(direction)}</span>
     </Col>
   );
 };

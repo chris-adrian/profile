@@ -1,12 +1,12 @@
 import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 
 export interface Props {
   name: String;
   title: string;
 }
 
-const Profile = (props: Props) => {
+const Sidebar = (props: Props) => {
   return (
     <Row className="align-items-center h-100-md-up">
       <Col md={12}>
@@ -21,8 +21,7 @@ const Profile = (props: Props) => {
             <h2>{props.title}</h2>
           </div>
           <div className="mb-2">
-            <Link to="/"> Home </Link>&nbsp;&#124;&nbsp;
-            <Link to="/about"> About </Link>
+            <Navigation />
           </div>
         </div>
       </Col>
@@ -30,4 +29,4 @@ const Profile = (props: Props) => {
   );
 };
 
-export default Profile;
+export default Sidebar;

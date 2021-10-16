@@ -9,6 +9,7 @@ const ProfileInfo = ({ inProp, onClick }) => {
       in={inProp}
       timeout={350}
       className="slide"
+      classNames="slide"
     >
       <div ref={nodeRef} onClick={onClick}>
         <p>
