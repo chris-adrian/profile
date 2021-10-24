@@ -2,17 +2,20 @@ import { useEffect, useState, useRef } from "react";
 import { Row, Col } from "react-bootstrap";
 import { CSSTransition } from "react-transition-group";
 
-const PageWrapper = ({ children, useClass }) => {
+export interface Props {
+  children?: any;
+  useClass: string;
+  currentState: boolean;
+  timeOut?: number;
+}
+
+const TransitionWrapper = (props: Props) => {
   const nodeRef = useRef(null);
   const [pageState, setPageState] = useState(false);
 
   useEffect(() => {
-    if (!pageState) {
-      setTimeout(() => {
-        setPageState(!pageState);
-      }, 100);
-    }
-  }, [pageState]);
+    setPageState(props.currentState);
+  }, [props.currentState]);
 
   return (
     <Row className="align-items-center h-100-md-up">
@@ -20,15 +23,15 @@ const PageWrapper = ({ children, useClass }) => {
         <CSSTransition
           nodeRef={nodeRef}
           in={pageState}
-          timeout={300}
-          className={useClass}
-          classNames={useClass}
+          timeout={props.timeOut ? props.timeOut : 300}
+          className={props.useClass}
+          classNames={props.useClass}
         >
-          <div ref={nodeRef}>{children}</div>
+          <div ref={nodeRef}>{props.children}</div>
         </CSSTransition>
       </Col>
     </Row>
   );
 };
 
-export default PageWrapper;
+export default TransitionWrapper;

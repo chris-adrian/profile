@@ -131,17 +131,50 @@ html,
 body,
 #root,
 main {
+  min-width: 300px;
   height: 100%;
 }
 body main {
   background-color: rgb(228, 228, 228);
 }
+.profile .responsive-img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+.navigator svg {
+  user-select: none;
+  cursor: pointer;
+}
+/* Fade In Effect */
+.fade-in {
+  display: none;
+  transition: opacity 300ms;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+}
+.fade-in-enter-done,
+.fade-in-enter,
+.fade-in-exit {
+  display: block;
+  opacity: 0;
+}
+.fade-in-enter-done,
+.fade-in-enter-active {
+  opacity: 1;
+}
+.fade-in-exit-active {
+  opacity: 0;
+}
+
 @media only screen and (min-width: 768px) {
   .h-100-md-up {
     height: 100%;
     max-height: 100vh;
   }
-
+  .fade-in {
+    position: absolute;
+  }
   section .profile {
     margin-right: -15px;
     background: -moz-linear-gradient(
@@ -165,27 +198,12 @@ body main {
     background-size: 3px 100%;
   }
 }
-
-.navigator svg {
-  user-select: none;
-  cursor: pointer;
-}
-
-.slide {
-  position: absolute;
-  display: none;
-  transition: opacity 300ms;
-}
-.slide-enter-done,
-.slide-enter,
-.slide-exit {
-  display: block;
-  opacity: 0;
-}
-.slide-enter-done,
-.slide-enter-active {
-  opacity: 1;
-}
-.slide-exit-active {
-  opacity: 0;
+@media only screen and (max-width: 767px) {
+  .fade-in-enter-active,
+  .fade-in-exit-active {
+    position: absolute;
+  }
+  .profile .responsive-img {
+    max-width: 100px;
+  }
 }

@@ -1,12 +1,12 @@
 import Row from "react-bootstrap/Row";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-
+// Pages
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-
-import Sidebar from "./Sidebar";
-import PageWrapper from "./PageWrapper";
+// components
+import Profilebar from "./Profilebar";
+import TransitionWrapper from "./TransitionWrapper";
 
 const Main = () => {
   return (
@@ -14,7 +14,7 @@ const Main = () => {
       <main className="container-fluid">
         <Row className="align-items-center h-100-md-up">
           <section className="col-xs-12 col-md-4 h-100-md-up text-center">
-            <Sidebar name="Chris James" title="Web Developer!" />
+            <Profilebar name="Chris James" title="Web Developer!" />
           </section>
           <section className="col-xs-12 col-md-8 h-100-md-up">
             <Switch>
@@ -23,9 +23,9 @@ const Main = () => {
                 path="/about"
                 component={() => {
                   return (
-                    <PageWrapper useClass={"slide"}>
+                    <TransitionWrapper useClass={"fade-in"} currentState={true}>
                       <About />
-                    </PageWrapper>
+                    </TransitionWrapper>
                   );
                 }}
               />
@@ -33,9 +33,9 @@ const Main = () => {
                 path="/contact"
                 component={() => {
                   return (
-                    <PageWrapper useClass={"slide"}>
+                    <TransitionWrapper useClass={"fade-in"} currentState={true}>
                       <Contact />
-                    </PageWrapper>
+                    </TransitionWrapper>
                   );
                 }}
               />

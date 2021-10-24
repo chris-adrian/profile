@@ -1,17 +1,21 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Col from "react-bootstrap/Col";
-import ProfileInfo from "./ProfileInfo";
-import ProfileIntro from "./ProfileIntro";
+// Blocks
+import ProfileInfo from "../blocks/ProfileInfo";
+import ProfileIntro from "../blocks/ProfileIntro";
+// Components
+import HomeNavigator from "./HomeNavigator";
+import TransitionWrapper from "./TransitionWrapper";
 
-// Conver to Class Component, add dynamic state function
-const HomeContent = ({ onChange, resetFlow }) => {
+const HomeContent = () => {
   const contents = useMemo(() => {
     return [ProfileIntro, ProfileInfo, ProfileIntro];
   }, []);
+  const [contentFlow, setContentFlow] = useState(0);
   const [contentState, setContentState] = useState({});
 
-  const elemCalled = () => {
-    console.log("test");
+  const changeFlow = (flow: number) => {
+    setContentFlow(flow);
   };
 
   useEffect(() => {
@@ -57,20 +61,44 @@ const HomeContent = ({ onChange, resetFlow }) => {
           }
         }
         setContentState({ ...contentState, ...contentStateCopy });
-        resetFlow();
+        setContentFlow(0);
       }
     };
-    handleChange(onChange);
-  }, [onChange, contentState, resetFlow]);
+    handleChange(contentFlow);
+  }, [contentFlow, contentState]);
 
   return (
-    <Col md={12}>
-      {contents.map((Item, key) => {
-        return (
-          <Item key={key} inProp={contentState[key]} onClick={elemCalled} />
-        );
-      })}
-    </Col>
+    <>
+      <Col md={12}>
+        <HomeNavigator
+          onClick={() => {
+            changeFlow(1);
+          }}
+          direction={"up"}
+        />
+      </Col>
+      <Col md={12}>
+        {contents.map((Content, key) => {
+          return (
+            <TransitionWrapper
+              key={key}
+              currentState={contentState[key]}
+              useClass={"fade-in"}
+            >
+              <Content />
+            </TransitionWrapper>
+          );
+        })}
+      </Col>
+      <Col md={12}>
+        <HomeNavigator
+          onClick={() => {
+            changeFlow(-1);
+          }}
+          direction={"down"}
+        />
+      </Col>
+    </>
   );
 };
 
