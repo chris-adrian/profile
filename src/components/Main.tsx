@@ -7,11 +7,16 @@ import Contact from "../pages/Contact";
 // components
 import Profilebar from "./Profilebar";
 import TransitionWrapper from "./TransitionWrapper";
+// Background
+import SubtleImg from "../images/ecailles.png";
 
 const Main = () => {
   return (
     <Router>
-      <main className="container-fluid">
+      <main
+        className="container-fluid"
+        style={{ backgroundImage: `url(${SubtleImg})` }}
+      >
         <Row className="align-items-center h-100-md-up">
           <section className="col-xs-12 col-md-4 h-100-md-up text-center">
             <Profilebar name="Chris James" title="Web Developer!" />
