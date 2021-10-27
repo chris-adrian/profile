@@ -136,7 +136,7 @@ main {
   font-family: "Quicksand", sans-serif;
   font-weight: bold;
 }
-body main {
+main {
   background-color: #fff;
 }
 main a {
@@ -146,6 +146,13 @@ main a {
 main a:hover {
   color: #a76400;
 }
+h1 {
+  font-size: 28px;
+}
+h1 + h2 {
+  font-size: 16px;
+  margin-top: 5px;
+}
 .profile .responsive-img {
   width: 100%;
   height: auto;
@@ -154,15 +161,15 @@ main a:hover {
   border: solid 4px#fff;
   box-shadow: 0px 2px 4px #ababab;
 }
+.navigator img {
+  width: 80px;
+  height: auto;
+}
 .navigator svg {
   user-select: none;
   cursor: pointer;
 }
 /* Fade In Effect */
-.fade-in-exit-done,
-.fade-in-enter-done {
-  position: initial;
-}
 .fade-in {
   display: none;
   position: absolute;
@@ -213,7 +220,14 @@ main a:hover {
   }
 }
 @media only screen and (max-width: 767px) {
+  main {
+    padding-top: 15px;
+  }
   .profile .responsive-img {
     max-width: 100px;
+  }
+  .fade-in-exit-done,
+  .fade-in-enter-done {
+    position: initial;
   }
 }

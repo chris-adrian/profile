@@ -19,7 +19,7 @@ const Main = () => {
       >
         <Row className="align-items-center h-100-md-up">
           <section className="col-xs-12 col-md-4 h-100-md-up text-center">
-            <Profilebar name="Chris James" title="Web Developer!" />
+            <Profilebar name="Chris James" title="Web Application Developer" />
           </section>
           <section className="col-xs-12 col-md-8 h-100-md-up">
             <Switch>
