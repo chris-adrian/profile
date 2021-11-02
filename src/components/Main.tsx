@@ -8,7 +8,7 @@ import Contact from "../pages/Contact";
 import Profilebar from "./Profilebar";
 import TransitionWrapper from "./TransitionWrapper";
 // Background
-import SubtleImg from "../images/ecailles.png";
+import SubtleImg from "../media/ecailles.png";
 
 const Main = () => {
   return (

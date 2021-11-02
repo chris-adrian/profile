@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import Navigation from "./Navigation";
-import profilePic from "../images/profile.jpg";
+import profilePic from "../media/profile.jpg";
 
 export interface Props {
   name: String;

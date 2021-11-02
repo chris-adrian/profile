@@ -75,6 +75,7 @@ const HomeContent = () => {
             changeFlow(1);
           }}
           direction={"up"}
+          color={"orange"}
         />
       </Col>
       <Col md={12}>
@@ -96,6 +97,7 @@ const HomeContent = () => {
             changeFlow(-1);
           }}
           direction={"down"}
+          color={"orange"}
         />
       </Col>
     </>

@@ -1,28 +1,18 @@
-import { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
-import ArrowUp from "../images/arrow-up.png";
-import ArrowDown from "../images/arrow-down.png";
+import ArrowIcon from "../media/ArrowIcon";
 
-const HomeNavigator = ({ onClick, direction }) => {
-  const [arrow, setArrow] = useState(ArrowUp);
+export interface Props {
+  onClick: () => void;
+  direction: String;
+  color: String;
+}
 
-  useEffect(() => {
-    const initIcon = (direction) => {
-      switch (direction) {
-        case "up":
-          return setArrow(ArrowUp);
-        case "down":
-          return setArrow(ArrowDown);
-        default:
-          return console.log("arrow not set");
-      }
-    };
-    initIcon(direction);
-  }, [direction]);
-
+const HomeNavigator = (props: Props) => {
   return (
     <Col md={12} className="navigator text-center">
-      <img onClick={onClick} src={arrow} alt="home navigator" />
+      <span onClick={props.onClick}>
+        <ArrowIcon dir={props.direction} color={props.color} />
+      </span>
     </Col>
   );
 };
